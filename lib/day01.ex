@@ -27,7 +27,6 @@ defmodule Day01 do
     end
 
     Enum.sum(vals)
-
   end
 
   def parseInput(input) do
