@@ -33,6 +33,14 @@ defmodule Array2d do
     |> Enum.reject(fn {_, _, v} -> v == nil end)
   end
 
+  def cardinal_neighbors(d, {c, r, _}), do: cardinal_neighbors(d, {c, r})
+  def cardinal_neighbors(%Array2d{nodes: nodes}, {c, r}) do
+    for {c_off, r_off} <- [{0, -1}, {0, 1}, {-1, 0}, {1, 0}] do
+      Map.get(nodes, {c+c_off, r+r_off}, {c+c_off, r+r_off, nil})
+    end
+    |> Enum.reject(fn {_, _, v} -> v == nil end)
+  end
+
   def put(d = %Array2d{nodes: nodes}, {c, r}, val) do
     %Array2d{d |nodes: Map.put(nodes, {c, r}, {c, r, val})}
   end

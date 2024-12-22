@@ -57,7 +57,7 @@ defmodule Day09 do
 
   defp checksum({idx, num}), do: idx * num
 
-  def part2({files, spaces}) do
+  def part2({_files, _spaces}) do
     0
   end
 end
